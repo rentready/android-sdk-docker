@@ -27,7 +27,7 @@ jobs:
           build-args: |
             ANDROID_SDK_TOOLS_VERSION=${{ env.ANDROID_SDK_TOOLS_VERSION }}
           push: true
-          tags: avetkhov/android-sdk:tools
+          tags: rentready/android-sdk:tools
 
   push_sdk:
     needs: push_tools
@@ -71,4 +71,4 @@ jobs:
             ANDROID_BUILD_TOOLS_VERSION=${{ matrix.build-tools }}
           push: true
           tags: |
-            avetkhov/android-sdk:${{ matrix.platform }}
+            rentready/android-sdk:${{ matrix.platform }}
