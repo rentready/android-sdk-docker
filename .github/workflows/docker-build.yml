@@ -6,12 +6,11 @@ on:
 
 env:
   LOCAL_BASE_IMAGE: android-sdk:tools
+  ANDROID_SDK_TOOLS_VERSION: ${{ vars.ANDROID_SDK_TOOLS_VERSION }}
 
 jobs:
   build_tools:
     runs-on: ubuntu-latest
-    env:
-      ANDROID_SDK_TOOLS_VERSION: 9123335
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-qemu-action@v2
@@ -38,8 +37,10 @@ jobs:
     strategy:
       matrix:
         include:
+          - platform: 34
+            build-tools: 34.0.0
           - platform: 33
-            build-tools: 33.0.1
+            build-tools: 33.0.2
           - platform: 32
             build-tools: 32.0.0
           - platform: 31
