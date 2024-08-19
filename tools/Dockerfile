@@ -1,8 +1,9 @@
 FROM --platform=${BUILDPLATFORM} ubuntu:22.04
 
 # https://developer.android.com/studio/#command-tools
+# https://developer.android.com/studio/index.html#downloads
 ARG ANDROID_SDK_TOOLS_VERSION
-ENV ANDROID_SDK_TOOLS_VERSION=${ANDROID_SDK_TOOLS_VERSION:-9477386}
+ENV ANDROID_SDK_TOOLS_VERSION=${ANDROID_SDK_TOOLS_VERSION:-11076708}
 
 ENV ANDROID_SDK_PACKAGE=commandlinetools-linux-${ANDROID_SDK_TOOLS_VERSION}_latest.zip
 ENV ANDROID_SDK_DOWNLOAD_BASE_URL=https://dl.google.com/android/repository/${ANDROID_SDK_PACKAGE}
@@ -23,7 +24,7 @@ RUN apt-get update \
         zip \
         unzip \
         locales \
-        openjdk-11-jdk \
+        openjdk-17-jdk \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
