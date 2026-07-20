@@ -1,9 +1,9 @@
-FROM --platform=${BUILDPLATFORM} ubuntu:22.04
+FROM --platform=${BUILDPLATFORM} ubuntu:24.04
 
 # https://developer.android.com/studio/#command-tools
 # https://developer.android.com/studio/index.html#downloads
 ARG ANDROID_SDK_TOOLS_VERSION
-ENV ANDROID_SDK_TOOLS_VERSION=${ANDROID_SDK_TOOLS_VERSION:-11076708}
+ENV ANDROID_SDK_TOOLS_VERSION=${ANDROID_SDK_TOOLS_VERSION:-15859902}
 
 ENV ANDROID_SDK_PACKAGE=commandlinetools-linux-${ANDROID_SDK_TOOLS_VERSION}_latest.zip
 ENV ANDROID_SDK_DOWNLOAD_BASE_URL=https://dl.google.com/android/repository/${ANDROID_SDK_PACKAGE}

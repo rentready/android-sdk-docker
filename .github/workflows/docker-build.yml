@@ -37,16 +37,14 @@ jobs:
     strategy:
       matrix:
         include:
+          - platform: 37.1
+            build-tools: 37.0.0
+          - platform: 36.1
+            build-tools: 36.1.0
           - platform: 35
-            build-tools: 35.0.0
+            build-tools: 35.0.1
           - platform: 34
             build-tools: 34.0.0
-          - platform: 33
-            build-tools: 33.0.3
-          - platform: 32
-            build-tools: 32.0.0
-          - platform: 31
-            build-tools: 31.0.0
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-qemu-action@v2
