@@ -10,7 +10,7 @@ ENV ANDROID_SDK_DOWNLOAD_BASE_URL=https://dl.google.com/android/repository/${AND
 
 ENV ANDROID_HOME=/opt/android-sdk
 ENV ANDROID_SDK_ROOT=${ANDROID_HOME}
-ENV PATH=${PATH}:${ANDROID_HOME}/cmdline-tools/${ANDROID_SDK_TOOLS_VERSION}/bin:${ANDROID_HOME}/tools:${ANDROID_HOME}/tools/bin:${ANDROID_SDK_HOME}/platform-tools
+ENV PATH=${PATH}:${ANDROID_HOME}/cmdline-tools/${ANDROID_SDK_TOOLS_VERSION}/bin:${ANDROID_HOME}/platform-tools
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends --no-install-suggests \
@@ -43,5 +43,5 @@ RUN set -x \
     && mv ${ANDROID_HOME}/cmdline-tools/cmdline-tools ${ANDROID_HOME}/cmdline-tools/${ANDROID_SDK_TOOLS_VERSION} \
     && rm -rf /tmp/*
 
-RUN yes | sdkmanager --licenses \
+RUN yes | sdkmanager --licenses || true \
     && sdkmanager --version
